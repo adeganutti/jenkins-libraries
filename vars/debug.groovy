@@ -1,3 +1,3 @@
 def call(obj) {
-	logWithLevel("debug", obj)
+	echo "Hello world"
 }
