@@ -1,5 +1,5 @@
 def call(oktetoServerUrl, oktetoServerUrl, oktetoGithubRepositoryName, oktetoGithubRepositoryUrl, oktetoDeploymentName){
-  echo "Deploying on Okteto server : ${oktetoServerUrl} - ${oktetoGithubRepositoryName} - ${oktetoGithubRepositoryUrl} - ${oktetoDeploymentName}
+  echo "Deploying on Okteto server : ${oktetoServerUrl} - ${oktetoGithubRepositoryName} - ${oktetoGithubRepositoryUrl} - ${oktetoDeploymentName}"
   
   sh "okteto context use ${oktetoServerUrl} --token ${oktetoServerToken}"
   sh "okteto kubeconfig"
