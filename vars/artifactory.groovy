@@ -1,5 +1,5 @@
 def call(serverId, serverUrl, repositoryUrl, buildName, buildProject, credentialId) {
-        echo "Pushing artifact to : ${serverId} - ${serverUrl} - ${repositoryUrl}"
+        echo "Pushing artifact to Artifactory server : ${serverId} - ${serverUrl} - ${repositoryUrl}"
         
         rtServer(
                 id: serverId,
