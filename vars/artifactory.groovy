@@ -1,8 +1,10 @@
-def call(artifactoryId, artifactoryUrl, artifactoryCredentialId, artifactoryRepository, buildName, buildProject) {
+def call(serverId, serverUrl, repositoryUrl, buildName, buildProject, credentialId) {
+        echo "Pushing artifact to : ${serverId} - ${serverUrl} - ${repositoryUrl}
+        
         rtServer(
-                id: artifactoryId,
-                url: artifactoryUrl,
-                credentialsId: artifactoryCredentialId,
+                id: serverId,
+                url: serverUrl,
+                credentialsId: credentialId,
                 timeout: 300
         )
 
@@ -16,12 +18,12 @@ def call(artifactoryId, artifactoryUrl, artifactoryCredentialId, artifactoryRepo
         }
 
         rtUpload(
-                serverId: 'artifactory-server-saas',
+                serverId: serverId,
                 spec: '''{
                       "files": [
                         {
                           "pattern": "target/*.jar",
-                          "target": "artifactory/example-repo-local/"
+                          "target": repositoryUrl
                         }
                      ]
                 }''',
