@@ -1,9 +1,12 @@
 def call(runParallel, stagesMap){
+    def stagesList = []
+    stagesList.add(stagesMap)
+
     if (runParallel) {
-        parallel(stagesMap)
+        parallel(stagesList)
     } else {
-        for (analysisStage in stagesMap.values()) {
-            analysisStage.call()
+        for (stage in stagesList.values()) {
+            stage.call()
         }
     }
 }
