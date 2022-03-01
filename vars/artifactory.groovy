@@ -23,7 +23,7 @@ def call(serverId, serverUrl, repositoryUrl, buildName, buildProject, credential
                       "files": [
                         {
                           "pattern": "target/*.jar",
-                          "target": repositoryUrl
+                          "target": ${repositoryUrl}
                         }
                      ]
                 }''',
