@@ -19,14 +19,14 @@ def call(serverId, serverUrl, repositoryUrl, buildName, buildProject, credential
 
         rtUpload(
                 serverId: serverId,
-                spec: '''{
+                spec: """{
                       "files": [
                         {
                           "pattern": "target/*.jar",
                           "target": ${repositoryUrl}
                         }
                      ]
-                }''',
+                }""",
 
                 buildName: buildName,
                 project: buildProject
