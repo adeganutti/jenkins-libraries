@@ -1,6 +1,5 @@
 def call(sonarqubeEnv, credentialsId) {
-	//echo sonarqubeEnv
-	//echo credentialsId
+	echo "Scanning with SonarQube env : ${sonarqubeEnv}"
 	
 	withSonarQubeEnv(sonarqubeEnv) {
 		withCredentials([usernamePassword(credentialsId: credentialsId, usernameVariable: 'SONAR_USERNAME', passwordVariable: 'SONAR_PASSWORD')]) {
