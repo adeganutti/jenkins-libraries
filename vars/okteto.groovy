@@ -1,6 +1,7 @@
 def call(oktetoServerUrl, oktetoGithubRepositoryName, oktetoGithubRepositoryUrl, oktetoDeploymentName, oktetoCredentialId){
-  /*echo "Deploying on Okteto server : ${oktetoServerUrl} - ${oktetoGithubRepositoryName} - ${oktetoGithubRepositoryUrl} - ${oktetoDeploymentName}"
+  echo "Deploying on Okteto server : ${oktetoServerUrl} - ${oktetoGithubRepositoryName} - ${oktetoGithubRepositoryUrl} - ${oktetoDeploymentName}"
   
+  /*
   withCredentials([string(credentialsId: oktetoCredentialId, variable: 'TOKEN')]) {
     sh "okteto context use ${oktetoServerUrl} --token $TOKEN"
     sh "okteto kubeconfig"
