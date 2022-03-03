@@ -5,10 +5,7 @@ def call(repositoryUrl, filePath, credentials) {
 		{
 			echo "${USERNAME} - ${PASSWORD} - ${repositoryUrl} - ${filePath} - ${credentials}"
 			def scriptTempName = new Date().getTime().toString()
-			def file = curl -u ${USERNAME}:${PASSWORD} -H 'Accept: application/vnd.github.v3+json' '${repositoryUrl}/${filePath}'
-			echo file
-			
-			def b64 = json(shout(file))?.content?.replace("\n","")
+			def b64 = json(shout("curl -u ${USERNAME}:${PASSWORD} -H 'Accept: application/vnd.github.v3+json' '${repositoryUrl}/${filePath}'"))?.content?.replace("\n","")
 			if(b64 == null)
 				error "ERROR getFileFromGitHub: invalid groovy file."
 			writeFile text: b64, file: scriptTempName, encoding: "Base64"
