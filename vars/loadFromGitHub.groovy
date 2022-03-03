@@ -3,7 +3,7 @@ def call(repositoryUrl, filePath, credentials) {
 	{
 		withCredentials([usernamePassword(credentialsId: credentials, usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')])
 		{
-			echo ${USERNAME} - ${PASSWORD} - ${repositoryUrl} - ${filePath} - ${credential}
+			echo "${USERNAME} - ${PASSWORD} - ${repositoryUrl} - ${filePath} - ${credential}"
 			def scriptTempName = new Date().getTime().toString()
 			def b64 = json(shout("curl -u ${USERNAME}:${PASSWORD} -H 'Accept: application/vnd.github.v3+json' '${repositoryUrl}/${filePath}'"))?.content?.replace("\n","")
 			if(b64 == null)
